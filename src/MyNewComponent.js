@@ -77,8 +77,8 @@ const FormsForUser = props => {
 
       const matchingPass=(e)=>{
         setConfPassword(e.target.value);
-        if(e.target.value.length < 8 && e.target.value !== setPassword(e.target.value) ){
-            setConfPasswordError("must be match ");
+        if(e.target.value.length < 8 ){
+            setConfPasswordError("must be match 8 numers or more!");
         }else{
             setConfPasswordError("");
         }
@@ -115,7 +115,7 @@ const FormsForUser = props => {
             <label >ConfPassword :</label>
             <input type="password" onChange={(e)=>matchingPass(e)}/><br/><br/>
             {confpasswordError?<p style={{color:"red"}}>{confpasswordError}</p>:""}
-          
+            {password!==confpassword ?<p style={{color:"red"}}>passwords doesn't matches</p>:""}
                     
                     
                 
@@ -136,3 +136,4 @@ const FormsForUser = props => {
     );
 }
  export default FormsForUser;
+
